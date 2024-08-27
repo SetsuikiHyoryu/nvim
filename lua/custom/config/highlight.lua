@@ -72,7 +72,7 @@ set_custom_hl(diagnostic_texts, diagnostic_texts_configs)
 local cursorline_color_bg = { bg = '#31353f' }
 
 -- 关闭光标行背景色
--- 虽然 `vim.o.cursorline` 可以控制光标所在行有无背景色，但是有些插件会默认开启，所以不想显示光标行就需要更改光标行背景色。
+-- 虽然 `vim.opt.cursorline` 可以控制光标所在行有无背景色，但是有些插件会默认开启，所以不想显示光标行就需要更改光标行背景色。
 vim.api.nvim_set_hl(0, 'CursorLine', no_bg) -- 光标行（无背景色）
 
 -- 点亮光标行背景色

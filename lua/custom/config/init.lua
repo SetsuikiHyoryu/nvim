@@ -9,46 +9,43 @@ require 'custom.config.bufferline'
 require 'custom.config.highlight'
 
 -- [[ Setting options ]]
--- See `:help vim.o`
+-- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
-
--- Make line numbers default
-vim.o.number = true
-
--- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
-
--- Enable break indent
-vim.o.breakindent = true
-
--- Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
--- Keep signcolumn on by default
-vim.o.signcolumn = 'yes'
-
--- Decrease update time
-vim.opt.updatetime = 250
-
--- Decrease mapped sequence wait time
--- Displays which-key popup sooner
-vim.o.timeoutlen = 300
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+--  For more options, you can see `:help option-list`
 
 -- NOTE: You should make sure your terminal supports this
 -- 0.10+ 自动检测是否可用真彩色，可用则启动。此处为了兼容低版本，我仍旧保留了手动启用。
 -- see: https://gpanders.com/blog/whats-new-in-neovim-0.10/#hyperlinks
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
+
+-- Make line numbers default
+vim.opt.number = true
+-- Keep signcolumn on by default
+vim.opt.signcolumn = 'yes'
+-- Don't show the mode, since it's already in the status line
+vim.opt.showmode = false
+-- Enable break indent
+vim.opt.breakindent = true
+-- 启用光标行
+vim.opt.cursorline = true
+-- 隐藏命令行（在输入命令时会临时覆盖状态栏）
+-- vim.opt.cmdheight = 0
+
+-- Case insensitive searching UNLESS /C or capital in search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Decrease update time
+vim.opt.updatetime = 250
+-- Decrease mapped sequence wait time
+-- Displays which-key popup sooner
+vim.opt.timeoutlen = 300
+
+-- Set completeopt to have a better completion experience
+vim.opt.completeopt = 'menuone,noselect'
 
 -- Powershell 中 Ctrl + Z 程序会失去响应，替换为返回键
 vim.keymap.set('n', '<C-Z>', 'u', { silent = true })
--- 启用光标行
-vim.o.cursorline = true
--- 隐藏命令行（在输入命令时会临时覆盖状态栏）
--- vim.o.cmdheight = 0
 
 -- 强化 Markdown 中链接的渲染输出
 -- see: https://gpanders.com/blog/whats-new-in-neovim-0.10/#hyperlinks
