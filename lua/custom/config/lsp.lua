@@ -151,26 +151,6 @@ local servers = {
       exportPdf = 'never',
     },
   },
-
-  -- jdtls = (function()
-  --   local util = require 'lspconfig.util'
-  --   local config = util.path.join(vim.loop.os_homedir(), '.cache/jdtls/config')
-  --   local workspace = 'E:\\SOFT\\programming\\programming-language\\Java\\workspace'
-  --
-  --   return {
-  --     cmd = { 'jdtls', '-configuration', config, '-data', workspace },
-  --     init_options = { workspace = workspace },
-  --   }
-  -- end)(),
-
-  -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-  --
-  -- Some languages (like typescript) have entire language plugins that can be useful:
-  --    https://github.com/pmizio/typescript-tools.nvim
-  --
-  -- But for many setups, the LSP (`tsserver`) will work just fine
-  -- tsserver = {},
-  --
 }
 
 -- Ensure the servers and tools above are installed
@@ -224,9 +204,5 @@ require('mason-lspconfig').setup {
         filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue', 'html' },
       }
     end,
-
-    -- 使用 nvim-jdtls 时放开下文以禁用 lsp-config 的 jdtls 配置
-    -- 还需要使用到 nvim/ftplugin/java.lua 文件
-    -- ['jdtls'] = function() end,
   },
 }
