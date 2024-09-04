@@ -4,6 +4,10 @@
 
 ## 备忘录
 
+### 启动速度优化
+
+`:Lazy` -> `P` 检查启动速度，找出速度慢的插件后将其改为 `event = 'VeryLazy'`。
+
 ### 0.10 重大更新
 
 - [What's New in Neovim 0.10](https://gpanders.com/blog/whats-new-in-neovim-0.10/)
