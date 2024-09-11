@@ -183,7 +183,7 @@ require('mason-lspconfig').setup {
     -- 默认使用项目路径下 `node_modules` 中的 `typescript`，采用全局的会较为麻烦，如有需要可参考 nvim-lspconfig 官网
     -- Volar 2.0+ 不再支持托管 TypeScript。如果使用旧版 Volar 托管，需要禁用 tsserver。
     -- @see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
-    ['tsserver'] = function(server_name)
+    ['ts_ls'] = function(server_name)
       local vue_lsp_location = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
 
       require('lspconfig')[server_name].setup {

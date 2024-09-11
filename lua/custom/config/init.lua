@@ -3,7 +3,6 @@ require 'custom.config.nvim-cmp'
 require 'custom.config.tab'
 require 'custom.config.treesitter'
 require 'custom.config.markdown'
--- require 'custom.config.vscode'
 require 'custom.config.onedark'
 require 'custom.config.bufferline'
 require 'custom.config.highlight'
@@ -43,6 +42,12 @@ vim.opt.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
 vim.opt.completeopt = 'menuone,noselect'
+
+-- Tree-sitter based folding (implemented in Neovim itself, see :h vim.treesitter.foldexpr()).
+-- To enable it for the current window, set:
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo.foldlevel = 99 -- 避免打开文件时处于全折叠状态
 
 -- Powershell 中 Ctrl + Z 程序会失去响应，替换为返回键
 vim.keymap.set('n', '<C-Z>', 'u', { silent = true })
