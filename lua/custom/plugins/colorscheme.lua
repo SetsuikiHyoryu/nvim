@@ -15,10 +15,10 @@ return {
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
         theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
+        -- icons_enabled = false,
+        -- section_separators = '', -- 分隔图形
+        component_separators = '', -- 分隔字符
       },
     },
   },
