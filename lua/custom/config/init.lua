@@ -29,10 +29,15 @@ vim.opt.signcolumn = 'yes'
 vim.opt.showmode = false
 -- Enable break indent
 vim.opt.breakindent = true
--- 启用光标行
-vim.opt.cursorline = true
 -- 隐藏命令行（在输入命令时会临时覆盖状态栏）
 -- vim.opt.cmdheight = 0
+
+-- 关闭光标行。因为有些主题会默认开启。
+vim.opt.cursorline = false
+-- 创建切换光标行是否显示的命令
+vim.api.nvim_create_user_command('ToggleCursorline', function()
+  vim.opt.cursorline = not vim.opt.cursorline:get()
+end, {})
 
 -- Case insensitive searching UNLESS /C or capital in search
 vim.opt.ignorecase = true
@@ -46,12 +51,6 @@ vim.opt.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
 vim.opt.completeopt = 'menuone,noselect'
-
--- Tree-sitter based folding (implemented in Neovim itself, see :h vim.treesitter.foldexpr()).
--- To enable it for the current window, set:
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.wo.foldlevel = 99 -- 避免打开文件时处于全折叠状态
 
 -- Powershell 中 Ctrl + Z 程序会失去响应，替换为返回键
 vim.keymap.set('n', '<C-Z>', 'u', { silent = true })

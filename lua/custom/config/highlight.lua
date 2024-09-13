@@ -68,29 +68,15 @@ local diagnostic_texts = { 'DiagnosticVirtualTextHint', 'DiagnosticVirtualTextEr
 local diagnostic_texts_configs = merge_table(no_bg, { bold = true })
 set_custom_hl(diagnostic_texts, diagnostic_texts_configs)
 
+-- [[光标行]]
 -- 光标行背景色
-local cursorline_color_bg = { bg = '#31353f' }
-
--- 关闭光标行背景色
--- 虽然 `vim.opt.cursorline` 可以控制光标所在行有无背景色，但是有些插件会默认开启，所以不想显示光标行就需要更改光标行背景色。
-vim.api.nvim_set_hl(0, 'CursorLine', no_bg) -- 光标行（无背景色）
-
--- 点亮光标行背景色
--- set_custom_hl({
---   'CursorLine', -- 光标行
---   'CursorLineNr', -- 光标行（数字）
--- }, cursorline_color_bg)
-
--- 创建切换光标行是否显示的命令
-vim.api.nvim_create_user_command('ToggleCursorline', function()
-  local hl_cursorline = vim.api.nvim_get_hl(0, { name = 'CursorLine' })
-
-  local bg_is_nil = vim.tbl_isempty(hl_cursorline) or hl_cursorline.bg == nil
-  set_custom_hl({
-    'CursorLine', -- 光标行
-    'CursorLineNr', -- 光标行（数字）
-  }, bg_is_nil and cursorline_color_bg or no_bg)
-end, {})
+vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#31353f' })
+-- 链接其他光标行颜色组
+set_custom_hl({
+  'CursorLineNr', -- 光标行（数字）
+  -- 标志的光标行和 gitsigns 的颜色组不为同一个，所以不设置了。
+  -- 'CursorLineSign', -- 光标行（标志）
+}, { link = 'CursorLine' })
 
 -- [[gui 透明度，默认值为 0，数字越大越透明]]
 -- vim.opt.winblend = 10 -- floating window
