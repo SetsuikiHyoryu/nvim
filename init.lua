@@ -26,7 +26,7 @@ require('lazy').setup({
   { import = 'custom.plugins' },
 
   require 'kickstart.plugins.autoformat',
-  require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.lint',
 }, {})
 

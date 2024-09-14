@@ -1,29 +1,35 @@
 return {
   {
-    'nvim-tree/nvim-tree.lua',
+    'nvim-neo-tree/neo-tree.nvim',
     version = '*',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    event = 'VeryLazy',
-
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
+    },
+    cmd = 'Neotree',
+    keys = {
+      { '<leader><leader>', ':Neotree toggle reveal<CR>', desc = 'NeoTree toggle reveal', silent = true },
+    },
+    opts = {
+      filesystem = {
+        window = {
+          mappings = {
+            ['<leader><leader>'] = 'close_window',
+          },
+        },
+      },
+    },
     config = function()
-      require('nvim-tree').setup {}
-
-      -- disable netrw at the very start of your init.lua
-      vim.g.loaded_netrw = 1
-      vim.g.loaded_netrwPlugin = 1
-
-      -- set termguicolors to enable highlight groups
-      vim.opt.termguicolors = true
+      -- 让缩进竖线和 IndentBlank 保持一致
+      vim.api.nvim_set_hl(0, 'NeoTreeIndentMarker', { link = 'IndentBlanklineChar' })
 
       -- 在离开 Tab 时自动关闭文件树边栏
-      local api = require 'nvim-tree.api'
       vim.api.nvim_create_autocmd('TabLeave', {
         callback = function()
-          api.tree.close_in_this_tab()
+          vim.cmd 'Neotree close'
         end,
       })
-
-      vim.keymap.set('n', '<leader>t', ':NvimTreeFindFileToggle<CR>', { silent = true })
     end,
   },
 

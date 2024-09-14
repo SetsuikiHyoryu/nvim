@@ -56,9 +56,10 @@ local hl_groups = {
   'StatusLine', -- 状态栏
   -- 'NonText', -- 无字区，目前已经是无背景，但是不知道哪个插件设置的。
 
-  -- nvim-tree
-  'NvimTreeNormal', -- 背景（有字区）
-  'NvimTreeEndOfBuffer', -- 背景（无字区）
+  -- NeoTree
+  'NeoTreeNormal', -- 背景（有字区）
+  'NeoTreeNormalNc', -- 背景（有字区，非当前窗口时）
+  'NeoTreeEndOfBuffer', -- 背景（无字区）
 }
 
 set_custom_hl(hl_groups, no_bg)

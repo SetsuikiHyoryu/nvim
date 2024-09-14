@@ -32,8 +32,6 @@ vim.opt.breakindent = true
 -- 隐藏命令行（在输入命令时会临时覆盖状态栏）
 -- vim.opt.cmdheight = 0
 
--- 关闭光标行。因为有些主题会默认开启。
-vim.opt.cursorline = false
 -- 创建切换光标行是否显示的命令
 vim.api.nvim_create_user_command('ToggleCursorline', function()
   vim.opt.cursorline = not vim.opt.cursorline:get()
