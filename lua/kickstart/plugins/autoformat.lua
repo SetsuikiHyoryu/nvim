@@ -60,6 +60,7 @@ return {
 
       go = { 'goimports', 'gofmt' },
       rust = { 'rustfmt' },
+      c = { 'clang-format' },
     },
 
     vim.api.nvim_create_autocmd('BufWritePre', {
