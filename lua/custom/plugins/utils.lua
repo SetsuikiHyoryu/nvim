@@ -21,5 +21,12 @@ return {
   -- translator
   'voldikss/vim-translator',
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', event = 'VeryLazy', opts = {} },
+  {
+    'numToStr/Comment.nvim',
+    event = 'VeryLazy',
+    opts = {},
+    config = function()
+      vim.g.translator_default_engines = { 'haici' }
+    end,
+  },
 }
