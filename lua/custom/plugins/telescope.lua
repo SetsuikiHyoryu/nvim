@@ -51,12 +51,23 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
+        defaults = {
+          layout_strategy = 'vertical',
+          layout_config = {
+            preview_cutoff = 0, -- 不显示文件预览的临界行/列数。
+            height = 0.95,
+          },
+
+          --   mappings = {
+          --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+          --   },
+        },
+
+        -- pickers = {
+        -- theme for `layout_strategy.bottom_pane()`
+        -- find_files = { theme = 'ivy' },
         -- },
-        -- pickers = {}
+
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
