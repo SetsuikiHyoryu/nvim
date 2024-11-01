@@ -14,6 +14,8 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
+-- 禁用鼠标
+vim.opt.mouse = ''
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 -- Enable break indent
