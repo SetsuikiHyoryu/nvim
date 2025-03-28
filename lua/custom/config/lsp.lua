@@ -220,7 +220,11 @@ require('mason-lspconfig').setup {
       require('lspconfig')[server_name].setup {
         capabilities = vim.tbl_deep_extend('force', {}, capabilities),
 
+        -- See: https://github.com/typescript-language-server/typescript-language-server/blob/master/docs/configuration.md#initializationoptions
         init_options = {
+          -- 一些大型 TS 项目需要分配较多内存以避免 ts_ls 崩溃。若非开发这些项目中，应将这里注释。
+          maxTsServerMemory = 8192,
+
           -- Volar 2.0+ 不会管理 `.vue` 的 `<script>` 块中的 TypeScript，因此 tsserver 需要调用 Volar 插件以认出 `.vue`
           plugins = {
             {
