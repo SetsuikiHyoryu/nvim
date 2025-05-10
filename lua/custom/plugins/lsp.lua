@@ -95,6 +95,10 @@ return {
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'default',
 
+        -- <c-space>  在 Windows 中为输入法中英文切换，
+        -- 因此于此另外映射打开二级菜单的行为至插入模式中无动作的 <c-b> 上。
+        ['<c-b>'] = { 'show', 'show_documentation', 'hide_documentation' },
+
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
