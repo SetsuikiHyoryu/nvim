@@ -1,7 +1,7 @@
-vim.opt.termguicolors = true
-local bufferline = require('bufferline')
+vim.o.termguicolors = true
+local bufferline = require 'bufferline'
 
-bufferline.setup({
+bufferline.setup {
   options = {
     mode = 'tabs',
     style_preset = bufferline.style_preset.no_italic,
@@ -11,8 +11,8 @@ bufferline.setup({
     fill = {
       bg = {
         attribute = 'bg',
-        highlight = 'StatusLine'
-      }
-    }
-  }
-})
+        highlight = 'StatusLine',
+      },
+    },
+  },
+}

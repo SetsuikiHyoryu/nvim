@@ -1,10 +1,10 @@
 -- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
+-- See `:help vim.hl.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
   group = highlight_group,
   pattern = '*',
@@ -80,5 +80,5 @@ set_custom_hl({
 }, { link = 'CursorLine' })
 
 -- [[gui 透明度，默认值为 0，数字越大越透明]]
--- vim.opt.winblend = 10 -- floating window
--- vim.opt.pumblend = 10 -- popup-menu
+-- vim.o.winblend = 10 -- floating window
+-- vim.o.pumblend = 10 -- popup-menu

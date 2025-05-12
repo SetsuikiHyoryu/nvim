@@ -1,7 +1,7 @@
--- 修改 tab 显示的宽度
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+-- 修改 indent 的宽度
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'go' },
