@@ -159,11 +159,12 @@ vim.diagnostic.config {
   },
 }
 
+--[[deprecated]]
 -- LSP servers and clients are able to communicate to each other what features they support.
 --  By default, Neovim doesn't support everything that is in the LSP specification.
 --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
 --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-local capabilities = require('blink.cmp').get_lsp_capabilities()
+-- local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -204,6 +205,32 @@ local servers = {
     },
   },
 
+  --  默认使用项目路径下 `node_modules` 中的 `typescript`，采用全局的会较为麻烦，如有需要可参考 nvim-lspconfig 官网
+  --  Volar 2.0+ 不再支持托管 TypeScript。如果使用旧版 Volar 托管，需要禁用 tsserver。
+  --  See: https://github.com/kshksdrt/language-tools/blob/76fdd2c549f230c89edc94b422ecd87e74578725/README.md#hybrid-mode-configuration-requires-vuelanguage-server-version-200
+  ts_ls = (function()
+    local vue_lsp_location = vim.fn.expand '$MASON/packages' .. '/vue-language-server' .. '/node_modules/@vue/language-server'
+    return {
+      -- See: https://github.com/typescript-language-server/typescript-language-server/blob/master/docs/configuration.md#initializationoptions
+      init_options = {
+        -- 一些大型 TS 项目需要分配较多内存以避免 ts_ls 崩溃。若非开发这些项目中，应将这里注释。
+        maxTsServerMemory = 8192,
+
+        -- Volar 2.0+ 不会管理 `.vue` 的 `<script>` 块中的 TypeScript，因此 tsserver 需要调用 Volar 插件以认出 `.vue`
+        plugins = {
+          {
+            name = '@vue/typescript-plugin',
+            -- 如果项目路径下的 `node_modules` 中安装了 `@vue/typescript-plugin`，则 `location` 可以为任意值
+            location = vue_lsp_location,
+            languages = { 'vue' },
+          },
+        },
+      },
+
+      filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue' },
+    }
+  end)(),
+
   tinymist = {
     single_file_support = true,
 
@@ -238,47 +265,25 @@ vim.list_extend(ensure_installed, {
 })
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+for server_name, config in pairs(servers) do
+  vim.lsp.config(server_name, config)
+  vim.lsp.enable(server_name)
+end
+
 require('mason-lspconfig').setup {
   ensure_installed = {},
-  automatic_installation = false,
+  automatic_enable = true,
 
-  handlers = {
-    function(server_name)
-      local server = servers[server_name] or {}
-      -- This handles overriding only values explicitly passed
-      -- by the server configuration above. Useful when disabling
-      -- certain features of an LSP (for example, turning off formatting for tsserver)
-      server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-      require('lspconfig')[server_name].setup(server)
-    end,
-
-    -- 默认使用项目路径下 `node_modules` 中的 `typescript`，采用全局的会较为麻烦，如有需要可参考 nvim-lspconfig 官网
-    -- Volar 2.0+ 不再支持托管 TypeScript。如果使用旧版 Volar 托管，需要禁用 tsserver。
-    -- @see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
-    ['ts_ls'] = function(server_name)
-      local vue_lsp_location = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
-
-      require('lspconfig')[server_name].setup {
-        capabilities = vim.tbl_deep_extend('force', {}, capabilities),
-
-        -- See: https://github.com/typescript-language-server/typescript-language-server/blob/master/docs/configuration.md#initializationoptions
-        init_options = {
-          -- 一些大型 TS 项目需要分配较多内存以避免 ts_ls 崩溃。若非开发这些项目中，应将这里注释。
-          maxTsServerMemory = 8192,
-
-          -- Volar 2.0+ 不会管理 `.vue` 的 `<script>` 块中的 TypeScript，因此 tsserver 需要调用 Volar 插件以认出 `.vue`
-          plugins = {
-            {
-              name = '@vue/typescript-plugin',
-              -- 如果项目路径下的 `node_modules` 中安装了 `@vue/typescript-plugin`，则 `location` 可以为任意值
-              location = vue_lsp_location,
-              languages = { 'typescript', 'vue' },
-            },
-          },
-        },
-
-        filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue', 'html' },
-      }
-    end,
-  },
+  --[[deprecated]]
+  -- automatic_installation = false,
+  -- handlers = {
+  --   function(server_name)
+  --     local server = servers[server_name] or {}
+  --     -- This handles overriding only values explicitly passed
+  --     -- by the server configuration above. Useful when disabling
+  --     -- certain features of an LSP (for example, turning off formatting for tsserver)
+  --     server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+  --     require('lspconfig')[server_name].setup(server)
+  --   end,
+  -- },
 }
