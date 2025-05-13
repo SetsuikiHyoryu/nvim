@@ -2,6 +2,13 @@
 
 ## [Latest]
 
+## [0.2.2] （personal）
+
+### Fixed (0.2.2)
+
+- Fixed the issue where the `opts` for neo-tree were bugged when used together  
+  with `config`.
+
 ## [0.2.1] （personal）
 
 ### Fixed (0.2.1)
@@ -28,6 +35,7 @@
 ## [0.1.0]
 
 [Latest]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
+[0.2.2]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
 [0.2.1]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
 [0.2.0]: https://github.com/nvim-lua/kickstart.nvim/compare/d350db2449da40df003c40d440f909d74e2d4e70...6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6
 [0.1.0]: https://github.com/nvim-lua/kickstart.nvim/commit/d350db2449da40df003c40d440f909d74e2d4e70

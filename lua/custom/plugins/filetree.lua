@@ -20,10 +20,7 @@ return {
         },
       },
     },
-    config = function()
-      -- 让缩进竖线和 IndentBlank 保持一致
-      vim.api.nvim_set_hl(0, 'NeoTreeIndentMarker', { link = 'IndentBlanklineChar' })
-
+    init = function()
       -- 在离开 Tab 时自动关闭文件树边栏
       vim.api.nvim_create_autocmd('TabLeave', {
         callback = function()
