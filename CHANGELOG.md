@@ -2,6 +2,10 @@
 
 ## [Latest]
 
+### Deprecated
+
+- Comment out neo-tree.nvim.
+
 ### Fixed
 
 - Update indent-blankline.nvim comment.
