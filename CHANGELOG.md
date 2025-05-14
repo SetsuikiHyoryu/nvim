@@ -2,6 +2,10 @@
 
 ## [Latest]
 
+### Fixed
+
+- Update indent-blankline.nvim comment.
+
 ## [0.3.0] (personal)
 
 ### Changed (0.3.0)
