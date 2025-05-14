@@ -2,6 +2,10 @@
 
 ## [Latest]
 
+### Changed
+
+- Update oil.nvim config.
+
 ### Deprecated
 
 - Comment out neo-tree.nvim.
