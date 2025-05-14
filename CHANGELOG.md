@@ -1,16 +1,18 @@
 # Changelog
 
-## [Latest]
+## [Unreleased]
 
-### Changed
+## [0.4.0] (personal)
+
+### Changed (0.4.0)
 
 - Update oil.nvim config.
 
-### Deprecated
+### Deprecated (0.4.0)
 
 - Comment out neo-tree.nvim.
 
-### Fixed
+### Fixed (0.4.0)
 
 - Update indent-blankline.nvim comment.
 
@@ -52,7 +54,8 @@
 
 ## [0.1.0]
 
-[Latest]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
+[Unreleased]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
+[0.4.0]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
 [0.3.0]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
 [0.2.2]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
 [0.2.1]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
