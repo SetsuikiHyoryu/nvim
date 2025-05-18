@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### Added
+
+- mini.ai.
+- mini.surround.
+
+### Changed
+
+- Replace lualine and bufferline with mini.nvim.
+
 ## [0.4.0] (personal)
 
 ### Changed (0.4.0)

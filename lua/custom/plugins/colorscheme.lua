@@ -10,25 +10,6 @@ return {
   },
 
   {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        theme = 'onedark',
-        -- icons_enabled = false,
-        -- section_separators = '', -- 分隔图形
-        component_separators = '', -- 分隔字符
-      },
-    },
-  },
-
-  {
-    'akinsho/bufferline.nvim',
-    dependencies = 'nvim-tree/nvim-web-devicons',
-  },
-
-  {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
