@@ -60,6 +60,19 @@ local hl_groups = {
   'NeoTreeNormal', -- 背景（有字区）
   'NeoTreeNormalNc', -- 背景（有字区，非当前窗口时）
   'NeoTreeEndOfBuffer', -- 背景（无字区）
+
+  -- Telescope
+  -- `tokyonight.nvim` 中为其一部分颜色组设置了背景颜色。
+  -- 虽然 `tokyonight.nvim` 提供了设置 `float` 样式的选项，
+  -- 但同时会影响到补全提示窗口。
+  -- See tokyonight.nvim\lua\tokyonight\groups\telescope.lua
+  'TelescopeBorder', -- 展示窗口边框
+  'TelescopeNormal', -- 展示窗口内容
+  'TelescopePromptBorder', -- 输入窗口边框
+  'TelescopePromptTitle', -- 输入窗口标题
+
+  -- Treesitter
+  '@markup.raw.markdown_inline', -- inline code block
 }
 
 set_custom_hl(hl_groups, no_bg)

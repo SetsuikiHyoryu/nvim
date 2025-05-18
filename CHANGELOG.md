@@ -9,6 +9,7 @@
 
 ### Changed
 
+- Replace onedark.nvim with tokyonight.nvim.
 - Replace lualine and bufferline with mini.nvim.
 
 ## [0.4.0] (personal)
