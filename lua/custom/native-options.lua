@@ -62,22 +62,19 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- 强化 Markdown 中链接的渲染输出
 -- see: https://gpanders.com/blog/whats-new-in-neovim-0.10/#hyperlinks
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = { 'markdown' },
---   once = true,
---
---   callback = function()
---     vim.o.conceallevel = 2
---   end,
--- })
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'markdown' },
+  once = true,
+
+  callback = function()
+    vim.o.conceallevel = 2
+  end,
+})
 
 -- Powershell 中 Ctrl + Z 程序会失去响应，替换为返回键
 vim.keymap.set('n', '<C-Z>', 'u', { silent = true })
 
 -- [[ Diagnostic keymaps ]]
--- 0.10+ 中已经内置 `[d`, `]d` 映射
+-- 0.10+ 中已经内置 `[d`, `]d`, `CTRL-W_d` 映射
 -- see: https://neovim.io/doc/user/news-0.10.html
--- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
--- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })

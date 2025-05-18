@@ -11,6 +11,11 @@
 
 - Replace onedark.nvim with tokyonight.nvim.
 - Replace lualine and bufferline with mini.nvim.
+- Make markdown conceallevel 2 active.
+
+### Removed
+
+- Delete `<leader>e` keymap, `CTRL-W_d` is built-in.
 
 ## [0.4.0] (personal)
 
