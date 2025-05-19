@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.5.1] (personal) - 2025-05-19
+
+### Removed (0.5.1)
+
+- Remove mini.surround because it makes `s` delay.
+
 ## [0.5.0] (personal) - 2025-05-19
 
 ### Added (0.5.0)
@@ -72,6 +78,7 @@
 ## [0.1.0]
 
 [Unreleased]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
+[0.5.1]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
 [0.5.0]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
 [0.4.0]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
 [0.3.0]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...master
