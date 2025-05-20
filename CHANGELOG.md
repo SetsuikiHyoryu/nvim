@@ -5,6 +5,7 @@
 ### Added
 
 - Add `nvim-surround`.
+- Add `typescript-tools` but keep it disabled.
 
 ## [0.5.1] (personal) - 2025-05-19
 

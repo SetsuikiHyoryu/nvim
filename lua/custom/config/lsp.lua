@@ -227,7 +227,7 @@ local servers = {
         },
       },
 
-      filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue' },
+      filetypes = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'vue' },
     }
   end)(),
 

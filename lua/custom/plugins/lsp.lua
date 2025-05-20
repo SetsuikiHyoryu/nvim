@@ -137,4 +137,12 @@ return {
       signature = { enabled = true },
     },
   },
+
+  -- 非官方的 TypeScript LSP，据说性能比较好，但我在千画面大型项目中使用时启动响应很慢。
+  -- 使用的话需要禁用 ts_ls。
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    -- opts = {},
+  },
 }
