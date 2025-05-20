@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add `nvim-surround`.
+
 ## [0.5.1] (personal) - 2025-05-19
 
 ### Removed (0.5.1)
