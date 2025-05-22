@@ -11,6 +11,7 @@
 ### Change
 
 - Canel indent config file deprecation.
+- Enable `nmac427/guess-indent.nvim`.
 
 ## [0.5.1] (personal) - 2025-05-19
 
