@@ -6,6 +6,11 @@
 
 - Add `nvim-surround`.
 - Add `typescript-tools` but keep it disabled.
+- Add Markdown filetype's indent config.
+
+### Change
+
+- Canel indent config file deprecation.
 
 ## [0.5.1] (personal) - 2025-05-19
 
