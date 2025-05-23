@@ -32,3 +32,15 @@ local path = require('mason-registry').get_package('vue-language-server'):get_in
 ```lua
 'white ' .. 'thighhighs'
 ```
+
+### 命令模式快捷键
+
+- `CTRL-R`: 打开寄存器列表。
+- `CTRL-F`: 同 `:q`。
+
+### 其他快捷键相关
+
+- `:verbose map`: 查看当前 buffer 中生效的键映射。
+- `[、]`: 许多跳转的快捷键的前置。
+  - `[b、]b、[B、]B`：跳转 buffer。
+  - `[<space>、]<space>`: 普通模式下上下插入空行。
