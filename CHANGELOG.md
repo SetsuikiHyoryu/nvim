@@ -7,6 +7,7 @@
 - Add `nvim-surround`.
 - Add `typescript-tools` but keep it disabled.
 - Add Markdown filetype's indent config.
+- Add startup arguments for `markdownlint`.
 
 ### Change
 
