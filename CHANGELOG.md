@@ -6,6 +6,10 @@
 
 - Add lua note for display table with `vim.inspect`.
 
+## Changed
+
+- Update cmd arguments for `markdownlint`.
+
 ## [0.6.0] - 2025-05-23
 
 ### Added (0.6.0)
@@ -15,7 +19,7 @@
 - Add Markdown filetype's indent config.
 - Add startup arguments for `markdownlint`.
 
-### Change (0.6.0)
+### Changed (0.6.0)
 
 - Canel indent config file deprecation.
 - Enable `nmac427/guess-indent.nvim`.

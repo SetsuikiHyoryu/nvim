@@ -10,7 +10,7 @@ return {
         markdown = { 'markdownlint' },
       }
 
-      lint.linters.markdownlint.args = { '--config', '~/.markdownlint.jsonc' }
+      lint.linters.markdownlint.args = { '--stdin', '--config', '~/.markdownlint.jsonc' }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
