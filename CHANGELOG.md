@@ -2,11 +2,13 @@
 
 ## [Unreleased]
 
-## Added
+## [0.6.1] - 2025-05-26
+
+### Added (0.6.1)
 
 - Add lua note for display table with `vim.inspect`.
 
-## Changed
+### Changed (0.6.1)
 
 - Update cmd arguments for `markdownlint`.
 
@@ -100,6 +102,7 @@
 ## [0.1.0]
 
 [Unreleased]: https://github.com/nvim-lua/kickstart.nvim/compare/3338d3920620861f8313a2745fd5d2be39f39534...master
+[0.6.1]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
 [0.6.0]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
 [0.5.1]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
 [0.5.0]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
