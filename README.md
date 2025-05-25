@@ -33,6 +33,10 @@ local path = require('mason-registry').get_package('vue-language-server'):get_in
 'white ' .. 'thighhighs'
 ```
 
+### Neovim Lua 接口
+
+- `vim.inspect`: 返回 table 内容。
+
 ### 命令模式快捷键
 
 - `CTRL-R`: 打开寄存器列表。

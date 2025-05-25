@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## Added
+
+- Add lua note for display table with `vim.inspect`.
+
 ## [0.6.0] - 2025-05-23
 
 ### Added (0.6.0)
