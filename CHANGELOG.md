@@ -2,10 +2,20 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add `vtsls` config to support Vue LSP v3.0.0 (relased on 2025-07-02).
+
 ### Deprecated
 
 - Deprecate `capabilities` because it is already called automatically  
   within `blink.cmp`.
+- Deprecate the `ts_ls` custom LSP config due to a breaking change  
+  introduced in the Vue LSP update in v3.0.0.
+
+### Removed
+
+- Remove the `mason-lspconfig` old config for versions < v2.0.0.
 
 ## [0.6.1] - 2025-05-26
 
