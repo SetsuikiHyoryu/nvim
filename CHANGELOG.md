@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Deprecated
+
+- Deprecate `capabilities` because it is already called automatically  
+  within `blink.cmp`.
+
 ## [0.6.1] - 2025-05-26
 
 ### Added (0.6.1)
