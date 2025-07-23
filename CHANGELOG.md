@@ -2,18 +2,20 @@
 
 ## [Unreleased]
 
-### Added
+## [1.0.0] - 2025-07-23
+
+### Added (1.0.0)
 
 - Add `vtsls` config to support Vue LSP v3.0.0 (relased on 2025-07-02).
 
-### Deprecated
+### Deprecated (1.0.0)
 
 - Deprecate `capabilities` because it is already called automatically  
   within `blink.cmp`.
 - Deprecate the `ts_ls` custom LSP config due to a breaking change  
   introduced in the Vue LSP update in v3.0.0.
 
-### Removed
+### Removed (1.0.0)
 
 - Remove the `mason-lspconfig` old config for versions < v2.0.0.
 
@@ -116,14 +118,5 @@
 
 ## [0.1.0]
 
-[Unreleased]: https://github.com/nvim-lua/kickstart.nvim/compare/3338d3920620861f8313a2745fd5d2be39f39534...master
-[0.6.1]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
-[0.6.0]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
-[0.5.1]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
-[0.5.0]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
-[0.4.0]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
-[0.3.0]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
-[0.2.2]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
-[0.2.1]: https://github.com/nvim-lua/kickstart.nvim/compare/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6...3338d3920620861f8313a2745fd5d2be39f39534
-[0.2.0]: https://github.com/nvim-lua/kickstart.nvim/compare/d350db2449da40df003c40d440f909d74e2d4e70...6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6
-[0.1.0]: https://github.com/nvim-lua/kickstart.nvim/commit/d350db2449da40df003c40d440f909d74e2d4e70
+[Unreleased]: https://github.com/SetsuikiHyoryu/nvim-windows/compare/v1.0.0...main
+[1.0.0]: https://github.com/SetsuikiHyoryu/nvim-windows/releases/tag/v1.0.0
