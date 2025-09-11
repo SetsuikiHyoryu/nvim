@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Adjust `echasnovski/mini.nvim` to `nvim-mini/mini.nvim`.
+
 ## [1.0.0] - 2025-07-23
 
 ### Added (1.0.0)
