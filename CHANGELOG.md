@@ -6,6 +6,10 @@
 
 - Adjust `echasnovski/mini.nvim` to `nvim-mini/mini.nvim`.
 
+### Removed
+
+- Remove unused `null-ls` plugin configuration file.
+
 ## [1.0.0] - 2025-07-23
 
 ### Added (1.0.0)
