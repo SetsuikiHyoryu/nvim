@@ -6,6 +6,10 @@
 
 - Adjust `echasnovski/mini.nvim` to `nvim-mini/mini.nvim`.
 
+### Deprecated
+
+- Deprecate unnecessary diagnostic configuration.
+
 ### Removed
 
 - Remove unused `null-ls` plugin configuration file.
