@@ -1,3 +1,5 @@
+local utils = require 'custom.utils'
+
 return {
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -13,7 +15,9 @@ return {
         'nvim-telescope/telescope-fzf-native.nvim',
         -- NOTE: If you are having trouble with this installation,
         --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+        build = utils.isWindows
+            and 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+          or 'make',
         cond = function()
           return vim.fn.executable 'make' == 1
         end,

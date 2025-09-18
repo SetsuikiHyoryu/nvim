@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add `custom.utils` module and `isWindows` util function.
+
 ### Changed
 
 - Adjust `echasnovski/mini.nvim` to `nvim-mini/mini.nvim`.

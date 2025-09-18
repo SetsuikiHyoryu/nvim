@@ -1,5 +1,7 @@
 -- Neovim 原生即有的配置项。
 
+local utils = require 'custom.utils'
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
@@ -71,8 +73,10 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Powershell 中 Ctrl + Z 程序会失去响应，替换为返回键
-vim.keymap.set('n', '<C-Z>', 'u', { silent = true })
+if utils.isWindows then
+  -- Powershell 中 Ctrl + Z 程序会失去响应，替换为返回键
+  vim.keymap.set('n', '<C-Z>', 'u', { silent = true })
+end
 
 -- [[ Diagnostic keymaps ]]
 -- 0.10+ 中已经内置 `[d`, `]d`, `CTRL-W_d` 映射
