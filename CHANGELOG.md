@@ -13,6 +13,7 @@
 ### Removed
 
 - Remove unused `null-ls` plugin configuration file.
+- Remove deprecated `capabilities` configuration.
 
 ## [1.0.0] - 2025-07-23
 

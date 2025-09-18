@@ -161,15 +161,6 @@ vim.diagnostic.config {
   },
 }
 
--- [[deprecated]]: `capabilities` 的配置已被 `blink.cmp` 内置，故不再需要。
--- See: <https://github.com/Saghen/blink.cmp/tree/main/plugin#L1-L5>
---
--- LSP servers and clients are able to communicate to each other what features they support.
---  By default, Neovim doesn't support everything that is in the LSP specification.
---  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
---  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
--- local capabilities = require('blink.cmp').get_lsp_capabilities()
-
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 --
