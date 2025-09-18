@@ -5,10 +5,12 @@
 ### Changed
 
 - Adjust `echasnovski/mini.nvim` to `nvim-mini/mini.nvim`.
+- Move `ts_ls` LSP configuration out of deprecated.
 
 ### Deprecated
 
 - Deprecate unnecessary diagnostic configuration.
+- Deprecate the `vtsls` LSP server.
 
 ### Removed
 
