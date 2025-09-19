@@ -20,6 +20,7 @@
 
 - Remove unused `null-ls` plugin configuration file.
 - Remove deprecated `capabilities` configuration.
+- Remove deprecated `neo-tree` plugin.
 
 ## [1.0.0] - 2025-07-23
 
