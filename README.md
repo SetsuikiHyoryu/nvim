@@ -8,8 +8,8 @@
 ## 打印信息
 
 ```lua
-# 将会显示在 Neovim 的控制台中。
-# `:message` 可以再次查看到。
+-- 将会显示在 Neovim 的控制台中。
+-- `:message` 可以再次查看到。
 print('white thighhighs')
 ```
 
