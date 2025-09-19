@@ -2,21 +2,23 @@
 
 ## [Unreleased]
 
-### Added
+## [2.0.0] - 2025-09-19
+
+### Added (2.0.0)
 
 - Add `custom.utils` module and `isWindows` util function.
 
-### Changed
+### Changed (2.0.0)
 
 - Adjust `echasnovski/mini.nvim` to `nvim-mini/mini.nvim`.
 - Move `ts_ls` LSP configuration out of deprecated.
 
-### Deprecated
+### Deprecated (2.0.0)
 
 - Deprecate unnecessary diagnostic configuration.
 - Deprecate the `vtsls` LSP server.
 
-### Removed
+### Removed (2.0.0)
 
 - Remove unused `null-ls` plugin configuration file.
 - Remove deprecated `capabilities` configuration.
@@ -138,5 +140,6 @@
 
 ## [0.1.0]
 
-[Unreleased]: https://github.com/SetsuikiHyoryu/nvim-windows/compare/v1.0.0...main
+[Unreleased]: https://github.com/SetsuikiHyoryu/nvim-windows/compare/v2.0.0...main
+[2.0.0]: https://github.com/SetsuikiHyoryu/nvim-windows/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/SetsuikiHyoryu/nvim-windows/releases/tag/v1.0.0
