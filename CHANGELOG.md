@@ -10,6 +10,7 @@
 ## Removed
 
 - Remove deprecated `vtsls` configuration.
+- Remove deprecated unnecessary diagnostic configuration.
 
 ## [2.0.0] - 2025-09-19
 
