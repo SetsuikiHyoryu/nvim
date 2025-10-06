@@ -226,45 +226,6 @@ local servers = {
     }
   end)(),
 
-  -- [[deprecated]]: `vue_ls` 2025-08-07 abe3089 时点的说明，v3.0.0 又可用 ts_ls 了，
-  -- 因此弃用 `vtsls`。
-  --
-  -- 根据 `vue_ls` 2025-07-23 时间点的 wiki 说明，
-  -- v3.0.0 之后不能搭配 `ts_ls` 只能搭配 `vtsls` 使用，
-  -- 因为 `ts_ls` 不能处理 `typescript.tsserverRequest` 命令。
-  -- See: <https://github.com/vuejs/language-tools/wiki/Neovim>
-  -- vtsls = (function()
-  --   local vue_language_server_path = vim.fn.expand '$MASON/packages' .. '/vue-language-server' .. '/node_modules/@vue/language-server'
-  --
-  --   local vue_plugin = {
-  --     name = '@vue/typescript-plugin',
-  --     location = vue_language_server_path,
-  --     languages = { 'vue' },
-  --     configNamespace = 'typescript',
-  --   }
-  --
-  --   return {
-  --     settings = {
-  --       typescript = {
-  --         tsserver = {
-  --           -- 一些大型 TS 项目需要分配较多内存以避免 ts_ls 崩溃。若非开发这些项目中，应将这里注释。
-  --           maxTsServerMemory = 8192,
-  --         },
-  --       },
-  --
-  --       vtsls = {
-  --         tsserver = {
-  --           globalPlugins = { vue_plugin },
-  --         },
-  --       },
-  --     },
-  --
-  --     -- `vtsls` 和也提供 TypeScript LSP，所以不要和 `ts_ls` 重复使用。
-  --     -- 这里仅让 `vtsls` 作用于 Vue 文件。
-  --     filetypes = { 'vue' },
-  --   }
-  -- end)(),
-
   tinymist = {
     single_file_support = true,
 

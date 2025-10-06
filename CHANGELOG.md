@@ -2,10 +2,14 @@
 
 ## [Unreleased]
 
-## Change
+## Changed
 
 - Remove usages of deprecated `vim.lsp.protocol.Methods`.
   - Reference: <kickstart.nvim/pull/1738/>.
+
+## Removed
+
+- Remove deprecated `vtsls` configuration.
 
 ## [2.0.0] - 2025-09-19
 
