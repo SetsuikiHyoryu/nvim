@@ -78,7 +78,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
     ---@param client vim.lsp.Client
-    ---@param method vim.lsp.protocol.Method
+    ---@param method vim.lsp.protocol.Method.ClientToServer
     ---@param bufnr? integer some lsp support methods only in specific files
     ---@return boolean
     local function client_supports_method(client, method, bufnr)
@@ -95,7 +95,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --
     -- When you move your cursor, the highlights will be cleared (the second autocommand).
     local client = vim.lsp.get_client_by_id(event.data.client_id)
-    -- if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+    -- if client and client_supports_method(client, 'textDocument/documentHighlight', event.buf) then
     --   local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
     --   vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
     --     buffer = event.buf,
@@ -122,7 +122,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- code, if the language server you are using supports them
     --
     -- This may be unwanted, since they displace some of your code
-    if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+    if client and client_supports_method(client, 'textDocument/inlayHint', event.buf) then
       map('<leader>th', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
       end, '[T]oggle Inlay [H]ints')
