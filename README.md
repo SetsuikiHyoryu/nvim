@@ -13,6 +13,8 @@
 print('white thighhighs')
 ```
 
+- `:Inspect`: 打印当前光标处的语法信息（查高亮组极有用）。
+
 ## Neovim Lua 接口
 
 - `vim.inspect`: 返回 table 内容。

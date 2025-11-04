@@ -71,8 +71,16 @@ local hl_groups = {
   'TelescopePromptBorder', -- 输入窗口边框
   'TelescopePromptTitle', -- 输入窗口标题
 
-  -- Treesitter
+  -- Treesitter Language: Markdown
   '@markup.raw.markdown_inline', -- inline code block
+  '@markup.heading.1.markdown', -- heading (仅在 MacOS 中遭遇背景)
+  '@markup.heading.2.markdown', -- heading (仅在 MacOS 中遭遇背景)
+  '@markup.heading.3.markdown', -- heading (仅在 MacOS 中遭遇背景)
+  '@markup.heading.4.markdown', -- heading (仅在 MacOS 中遭遇背景)
+  '@markup.heading.5.markdown', -- heading (仅在 MacOS 中遭遇背景)
+  '@markup.heading.6.markdown', -- heading (仅在 MacOS 中遭遇背景)
+  '@markup.heading.7.markdown', -- heading (仅在 MacOS 中遭遇背景)
+  '@markup.heading.8.markdown', -- heading (仅在 MacOS 中遭遇背景)
 }
 
 set_custom_hl(hl_groups, no_bg)

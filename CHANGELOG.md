@@ -6,6 +6,7 @@
 
 - Remove usages of deprecated `vim.lsp.protocol.Methods`.
   - Reference: <kickstart.nvim/pull/1738/>.
+- Remove markdown heading background from treesitter highlight group.
 
 ## Removed
 
