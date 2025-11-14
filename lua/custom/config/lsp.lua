@@ -213,19 +213,6 @@ local servers = {
       filetypes = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'vue' },
     }
   end)(),
-
-  tinymist = {
-    single_file_support = true,
-
-    root_dir = function()
-      return vim.fn.getcwd()
-    end,
-
-    -- https://github.com/Myriad-Dreamin/tinymist/blob/5d8930522f6a1435f7b4c44cc8e5ca56ee4eeeb7/editors/neovim/Configuration.md
-    settings = {
-      exportPdf = 'never',
-    },
-  },
 }
 
 -- Ensure the servers and tools above are installed

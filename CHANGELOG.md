@@ -12,6 +12,7 @@
 
 - Remove deprecated `vtsls` configuration.
 - Remove deprecated unnecessary diagnostic configuration.
+- Remove tinymist outdated configuration.
 
 ## [2.0.0] - 2025-09-19
 
