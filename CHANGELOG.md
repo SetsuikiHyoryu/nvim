@@ -156,7 +156,7 @@
 
 ## [0.1.0]
 
-[Unreleased]: https://github.com/SetsuikiHyoryu/nvim-windows/compare/v2.0.0...main
+[Unreleased]: https://github.com/SetsuikiHyoryu/nvim-windows/compare/v3.0.0...main
 [3.0.0]: https://github.com/SetsuikiHyoryu/nvim-windows/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/SetsuikiHyoryu/nvim-windows/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/SetsuikiHyoryu/nvim-windows/releases/tag/v1.0.0
