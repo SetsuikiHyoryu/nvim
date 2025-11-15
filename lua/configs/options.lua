@@ -1,11 +1,20 @@
 -- Neovim 原生即有的配置项。
 
-local utils = require 'custom.utils'
+local utils = require 'utils'
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
+
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- Set to true if you have a Nerd Font installed and selected in the terminal
+vim.g.have_nerd_font = true
 
 -- NOTE: You should make sure your terminal supports this
 -- 0.10+ 自动检测是否可用真彩色，可用则启动。此处为了兼容低版本，我仍旧保留了手动启用。
@@ -24,11 +33,6 @@ vim.o.showmode = false
 vim.o.breakindent = true
 -- 隐藏命令行（在输入命令时会临时覆盖状态栏）
 -- vim.o.cmdheight = 0
-
--- 创建切换光标行是否显示的命令
-vim.api.nvim_create_user_command('ToggleCursorline', function()
-  vim.opt.cursorline = not vim.opt.cursorline:get()
-end, {})
 
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
@@ -62,19 +66,8 @@ vim.o.confirm = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- 强化 Markdown 中链接的渲染输出
--- see: https://gpanders.com/blog/whats-new-in-neovim-0.10/#hyperlinks
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'markdown' },
-  once = true,
-
-  callback = function()
-    vim.o.conceallevel = 2
-  end,
-})
-
+-- Powershell 中 Ctrl + Z 程序会失去响应，替换为返回键
 if utils.isWindows then
-  -- Powershell 中 Ctrl + Z 程序会失去响应，替换为返回键
   vim.keymap.set('n', '<C-Z>', 'u', { silent = true })
 end
 

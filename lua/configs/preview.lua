@@ -1,0 +1,30 @@
+local preview_group = vim.api.nvim_create_augroup('Preview', { clear = true })
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = preview_group,
+  once = true,
+  pattern = 'markdown',
+  callback = function()
+    vim.pack.add { 'https://github.com/OXY2DEV/markview.nvim' }
+    require('markview').setup {
+      preview = { enable = false },
+    }
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = preview_group,
+  once = true,
+  pattern = 'typ',
+  callback = function()
+    vim.pack.add { 'https://github.com/chomosuke/typst-preview.nvim' }
+    require('typst-preview').setup {
+      -- dark mode
+      --
+      -- 不让图片反色的配置
+      -- `'{"rest": "always", "image": "never"}'`
+      -- 由于 JSON 转译等原因，不能正常传输给 `tinymist`。
+      invert_colors = 'always',
+    }
+  end,
+})

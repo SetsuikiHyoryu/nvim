@@ -1,13 +1,29 @@
+vim.pack.add { 'https://github.com/folke/tokyonight.nvim' }
+
+require('tokyonight').setup {
+  transparent = true,
+  styles = {
+    comments = { italic = false },
+    sidebars = 'transparent',
+    floats = 'transparent',
+  },
+
+  -- 我不用到的配置，但不加会提示缺少 `field`。
+  on_highlights = function() end,
+  on_colors = function() end,
+}
+
+vim.cmd.colorscheme 'tokyonight-night'
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.hl.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-
+-- Yank 时高亮一下以提醒。
 vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
+  pattern = '*',
   callback = function()
     vim.hl.on_yank()
   end,
-  group = highlight_group,
-  pattern = '*',
 })
 
 -- [[修改高亮组自定义函数]]
@@ -70,6 +86,9 @@ local hl_groups = {
   'TelescopeNormal', -- 展示窗口内容
   'TelescopePromptBorder', -- 输入窗口边框
   'TelescopePromptTitle', -- 输入窗口标题
+
+  -- Markview
+  'MarkviewCode',
 
   -- Treesitter Language: Markdown
   '@markup.raw.markdown_inline', -- inline code block

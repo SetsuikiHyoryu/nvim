@@ -1,5 +1,10 @@
 # Neovim Configuration Directory
 
+## 参考资料
+
+- 用户文档：<https://neovim.io/doc/user/>
+- LSP 全局默认按键：<https://neovim.io/doc/user/lsp.html#_defaults>
+
 ## 0.10 重大更新
 
 - [What's New in Neovim 0.10](https://gpanders.com/blog/whats-new-in-neovim-0.10/)
@@ -14,6 +19,8 @@ print('white thighhighs')
 ```
 
 - `:Inspect`: 打印当前光标处的语法信息（查高亮组极有用）。
+- `:autocmd [event]`： 打印事件。
+- `:verbose <command>`: 输出指定命令的调试信息。
 
 ## Neovim Lua 接口
 

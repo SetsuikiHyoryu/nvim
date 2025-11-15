@@ -1,4 +1,5 @@
--- [[ Configure Treesitter ]]
+vim.pack.add { 'https://github.com/nvim-treesitter/nvim-treesitter' }
+
 -- 增加这个配置是因为下载 git 相关的解析器时发生了错误。
 -- 根据 `Windows support#How will the parser be downloaded?` 章节的说法，
 -- 通过 `git` 下载解析器的行为将被弃用，推荐 Windows 下也使用 `curl` 的方式。
@@ -51,4 +52,8 @@ require('nvim-treesitter.configs').setup {
   },
 
   indent = { enable = true, disable = {} },
+
+  -- 不是有意义字段，但是为必须字段。
+  -- 似乎是开发者定义类型时的 bug。
+  modules = {},
 }

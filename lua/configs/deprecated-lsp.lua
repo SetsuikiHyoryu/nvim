@@ -109,13 +109,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --     callback = vim.lsp.buf.clear_references,
     --   })
     --
-    --   vim.api.nvim_create_autocmd('LspDetach', {
-    --     group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
-    --     callback = function(event2)
-    --       vim.lsp.buf.clear_references()
-    --       vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
-    --     end,
-    --   })
+    vim.api.nvim_create_autocmd('LspDetach', {
+      group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+      callback = function(event2)
+        vim.lsp.buf.clear_references()
+        vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+      end,
+    })
     -- end
 
     -- The following code creates a keymap to toggle inlay hints in your
@@ -134,7 +134,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- See :help vim.diagnostic.Opts
 vim.diagnostic.config {
   severity_sort = true,
-  float = { border = 'rounded', source = 'if_many' },
+  float = { border = 'rounded', source = true },
   signs = vim.g.have_nerd_font and {
     text = {
       [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -144,7 +144,7 @@ vim.diagnostic.config {
     },
   } or {},
   virtual_text = {
-    source = 'if_many',
+    source = true,
     spacing = 2,
   },
 }

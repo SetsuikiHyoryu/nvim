@@ -2,14 +2,17 @@
 
 ## [Unreleased]
 
-## Changed
+## [3.0.0]
+
+### Changed (3.0.0)
 
 - Remove usages of deprecated `vim.lsp.protocol.Methods`.
   - Reference: <kickstart.nvim/pull/1738/>.
 - Remove markdown heading background from treesitter highlight group.
 - Update `typst-preview.nvim` version from `0.3.*` to `1.*`
+- Refactor configuration by replace `lazy.nvim` with `vim.pack`.
 
-## Removed
+### Removed (3.0.0)
 
 - Remove deprecated `vtsls` configuration.
 - Remove deprecated unnecessary diagnostic configuration.
@@ -154,5 +157,6 @@
 ## [0.1.0]
 
 [Unreleased]: https://github.com/SetsuikiHyoryu/nvim-windows/compare/v2.0.0...main
+[3.0.0]: https://github.com/SetsuikiHyoryu/nvim-windows/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/SetsuikiHyoryu/nvim-windows/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/SetsuikiHyoryu/nvim-windows/releases/tag/v1.0.0
