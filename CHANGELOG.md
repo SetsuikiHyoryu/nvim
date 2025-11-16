@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- 修改 Markview 颜色组以使背景透明。
+
 ## [3.0.0]
 
 ### Changed (3.0.0)

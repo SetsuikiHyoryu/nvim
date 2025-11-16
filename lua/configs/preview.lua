@@ -7,7 +7,15 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.pack.add { 'https://github.com/OXY2DEV/markview.nvim' }
     require('markview').setup {
-      preview = { enable = false },
+      ---@diagnostic disable-next-line: missing-fields
+      markdown = {
+        ---@diagnostic disable-next-line: missing-fields
+        code_blocks = {
+          sign = false,
+          style = 'simple',
+          label_direction = 'left',
+        },
+      },
     }
   end,
 })

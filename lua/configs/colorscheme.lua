@@ -104,6 +104,33 @@ local hl_groups = {
 
 set_custom_hl(hl_groups, no_bg)
 
+-- Markview
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('MarkviewHighlightCustom', { clear = true }),
+  pattern = 'markdown',
+  once = true,
+  callback = function()
+    local markview_hl_groups = {
+      'MarkviewCode',
+      'MarkviewInlineCode',
+      'MarkviewPalette1',
+      'MarkviewPalette2',
+      'MarkviewPalette3',
+      'MarkviewPalette4',
+      'MarkviewPalette5',
+      'MarkviewPalette6',
+      'MarkviewPalette1Sign',
+      'MarkviewPalette2Sign',
+      'MarkviewPalette3Sign',
+      'MarkviewPalette4Sign',
+      'MarkviewPalette5Sign',
+      'MarkviewPalette6Sign',
+    }
+
+    set_custom_hl(markview_hl_groups, no_bg)
+  end,
+})
+
 -- 行内信息（`gui=bold` 似于是默认值）
 local diagnostic_texts = { 'DiagnosticVirtualTextHint', 'DiagnosticVirtualTextError', 'DiagnosticVirtualTextInfo', 'DiagnosticVirtualTextWarn' }
 local diagnostic_texts_configs = merge_table(no_bg, { bold = true })
