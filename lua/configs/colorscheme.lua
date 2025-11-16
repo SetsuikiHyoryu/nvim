@@ -64,6 +64,7 @@ end
 local no_bg = { bg = 'none', ctermbg = 'none' }
 
 local hl_groups = {
+  'CursorLine', -- 光标行
   'Normal', -- 正文背景
   'DiffviewNormal', -- diff 正文背景
   'EndOfBuffer', -- buffer 最后一行之外的区域，即填充屏幕的部分。
@@ -71,24 +72,6 @@ local hl_groups = {
   'FoldColumn', -- 折叠列（标示列左侧）
   'StatusLine', -- 状态栏
   -- 'NonText', -- 无字区，目前已经是无背景，但是不知道哪个插件设置的。
-
-  -- NeoTree
-  'NeoTreeNormal', -- 背景（有字区）
-  'NeoTreeNormalNc', -- 背景（有字区，非当前窗口时）
-  'NeoTreeEndOfBuffer', -- 背景（无字区）
-
-  -- Telescope
-  -- `tokyonight.nvim` 中为其一部分颜色组设置了背景颜色。
-  -- 虽然 `tokyonight.nvim` 提供了设置 `float` 样式的选项，
-  -- 但同时会影响到补全提示窗口。
-  -- See tokyonight.nvim\lua\tokyonight\groups\telescope.lua
-  'TelescopeBorder', -- 展示窗口边框
-  'TelescopeNormal', -- 展示窗口内容
-  'TelescopePromptBorder', -- 输入窗口边框
-  'TelescopePromptTitle', -- 输入窗口标题
-
-  -- Markview
-  'MarkviewCode',
 
   -- Treesitter Language: Markdown
   '@markup.raw.markdown_inline', -- inline code block
@@ -137,14 +120,19 @@ local diagnostic_texts_configs = merge_table(no_bg, { bold = true })
 set_custom_hl(diagnostic_texts, diagnostic_texts_configs)
 
 -- [[光标行]]
--- 光标行背景色
-vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#31353f' })
 -- 链接其他光标行颜色组
 set_custom_hl({
   'CursorLineNr', -- 光标行（数字）
   -- 标志的光标行和 gitsigns 的颜色组不为同一个，所以不设置了。
   -- 'CursorLineSign', -- 光标行（标志）
 }, { link = 'CursorLine' })
+
+-- 创建切换光标行是否显示的命令。
+vim.api.nvim_create_user_command('CursorLine', function()
+  local bg = vim.api.nvim_get_hl(0, { name = 'CursorLine' }).bg
+  local new_bg = bg and 'none' or '#31353f'
+  set_custom_hl({ 'CursorLine' }, { bg = new_bg })
+end, {})
 
 -- [[gui 透明度，默认值为 0，数字越大越透明]]
 -- vim.o.winblend = 10 -- floating window

@@ -21,6 +21,8 @@ vim.g.have_nerd_font = true
 -- see: https://gpanders.com/blog/whats-new-in-neovim-0.10/#hyperlinks
 vim.o.termguicolors = true
 
+-- 高亮光标行，开关会影响行号高亮与否。
+vim.o.cursorline = true
 -- Make line numbers default
 vim.o.number = true
 -- Keep signcolumn on by default
