@@ -27,6 +27,8 @@ local servers = {
   'lua_ls',
   'rust_analyzer',
   'ts_ls',
+  'cssls',
+  'html',
 }
 
 -- 启动 LSP。

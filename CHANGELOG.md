@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Enable CSS, HTML LSP.
+
 ### Changed
 
 - 修改 Markview 颜色组以使背景透明。
