@@ -11,6 +11,7 @@
 
 - 修改 Markview 颜色组以使背景透明。
 - Change cursorline number foreground color to `#fbaed2` (pink).
+- Use `snacks.pikcer` instead of `vim.lsp.buf.xxx`.
 
 ### Fixed
 

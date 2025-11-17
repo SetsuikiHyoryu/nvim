@@ -54,9 +54,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set('n', keys, func, { buffer = attach.buf, desc = 'LSP: ' .. desc })
     end
 
-    map('grd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-    map('grD', vim.lsp.buf.definition, '[G]oto [D]eclaration')
+    map('grd', snacks_picker.lsp_definitions, '[G]oto [D]efinition')
+    map('grD', snacks_picker.lsp_declarations, '[G]oto [D]eclaration')
+    map('gri', snacks_picker.lsp_implementations, '[G]oto [I]mplementation')
     map('grr', snacks_picker.lsp_references, '[G]oto [R]eferences')
+    map('grt', snacks_picker.lsp_type_definitions, '[G]oto [T]ype Definition')
 
     -- Foloding
     if client and client:supports_method 'textDocument/foldingRange' then
