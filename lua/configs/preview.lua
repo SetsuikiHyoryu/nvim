@@ -1,11 +1,12 @@
 local preview_group = vim.api.nvim_create_augroup('Preview', { clear = true })
 
+vim.pack.add { 'https://github.com/OXY2DEV/markview.nvim' }
+
 vim.api.nvim_create_autocmd('FileType', {
   group = preview_group,
   once = true,
   pattern = 'markdown',
   callback = function()
-    vim.pack.add { 'https://github.com/OXY2DEV/markview.nvim' }
     require('markview').setup {
       ---@diagnostic disable-next-line: missing-fields
       markdown = {
@@ -20,12 +21,13 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.pack.add { 'https://github.com/chomosuke/typst-preview.nvim' }
+
 vim.api.nvim_create_autocmd('FileType', {
   group = preview_group,
   once = true,
   pattern = 'typ',
   callback = function()
-    vim.pack.add { 'https://github.com/chomosuke/typst-preview.nvim' }
     require('typst-preview').setup {
       -- dark mode
       --
