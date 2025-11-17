@@ -5,6 +5,7 @@
 ### Added
 
 - Enable CSS, HTML LSP.
+- Enable many other LSP.
 
 ### Changed
 

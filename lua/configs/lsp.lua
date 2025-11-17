@@ -26,9 +26,15 @@ vim.pack.add { 'https://github.com/neovim/nvim-lspconfig' }
 local servers = {
   'lua_ls',
   'rust_analyzer',
+  'gopls',
   'ts_ls',
   'cssls',
   'html',
+  'pyright',
+  'clangd',
+  'tinymist',
+  'powershell',
+  'jdtls',
 }
 
 -- 启动 LSP。
