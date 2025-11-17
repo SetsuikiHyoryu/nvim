@@ -21,6 +21,7 @@ print('white thighhighs')
 - `:Inspect`: 打印当前光标处的语法信息（查高亮组极有用）。
 - `:autocmd [event]`： 打印事件。
 - `:verbose <command>`: 输出指定命令的调试信息。
+- `:scriptnames`: 查看所有已加载脚本（查看哪些插件启用了）。
 
 ## Neovim Lua 接口
 
