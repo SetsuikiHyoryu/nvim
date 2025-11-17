@@ -2,11 +2,6 @@
 vim.pack.add { 'https://github.com/mason-org/mason.nvim' }
 require('mason').setup()
 
--- vim.api.nvim_create_autocmd('VimEnter', {
---   group = vim.api.nvim_create_augroup('SetupLazydev', { clear = true }),
---   once = true,
---   pattern = 'lua',
---   callback = function()
 -- 这个插件让 `lua_ls` 可以识别 Neovim 和插件接口。
 vim.pack.add { 'https://github.com/folke/lazydev.nvim' }
 
@@ -15,8 +10,6 @@ require('lazydev').setup {
   -- Load luvit types when the `vim.uv` word is found
   { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
 }
---   end,
--- })
 
 -- LSP 配置集。
 -- 使用这个插件可以不用手动调用 `vim.lsp.config`，
