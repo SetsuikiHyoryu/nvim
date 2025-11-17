@@ -67,7 +67,7 @@ local function lazy_callback()
     },
 
     sources = {
-      default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+      default = { 'lsp', 'path', 'snippets', 'lazydev' },
       providers = {
         lazydev = {
           name = 'LazyDev',
