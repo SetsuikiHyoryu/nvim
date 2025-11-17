@@ -19,17 +19,6 @@ require('tokyonight').setup {
 
 vim.cmd.colorscheme 'tokyonight-night'
 
--- [[ Highlight on yank ]]
--- See `:help vim.hl.on_yank()`
--- Yank 时高亮一下以提醒。
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
-  pattern = '*',
-  callback = function()
-    vim.hl.on_yank()
-  end,
-})
-
 -- [[修改高亮组自定义函数]]
 --- 合并两个表格。
 --- @param target table 合并至的目标表格
@@ -119,7 +108,13 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- 行内信息（`gui=bold` 似于是默认值）
-local diagnostic_texts = { 'DiagnosticVirtualTextHint', 'DiagnosticVirtualTextError', 'DiagnosticVirtualTextInfo', 'DiagnosticVirtualTextWarn' }
+local diagnostic_texts = {
+  'DiagnosticVirtualTextHint',
+  'DiagnosticVirtualTextError',
+  'DiagnosticVirtualTextInfo',
+  'DiagnosticVirtualTextWarn',
+}
+
 local diagnostic_texts_configs = merge_table(no_bg, { bold = true })
 set_custom_hl(diagnostic_texts, diagnostic_texts_configs)
 
@@ -132,6 +127,18 @@ vim.api.nvim_create_user_command('CursorLine', function()
   local new_bg = bg and 'none' or '#292e42'
   set_custom_hl({ 'CursorLine', 'CursorLineNr' }, { bg = new_bg })
 end, {})
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.hl.on_yank()`
+-- Yank 时高亮一下以提醒。
+set_custom_hl({ 'IncSearch' }, { bg = '#fbaed2' })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
+  pattern = '*',
+  callback = function()
+    vim.hl.on_yank()
+  end,
+})
 
 -- [[gui 透明度，默认值为 0，数字越大越透明]]
 -- vim.o.winblend = 10 -- floating window
