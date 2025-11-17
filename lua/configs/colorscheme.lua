@@ -8,8 +8,12 @@ require('tokyonight').setup {
     floats = 'transparent',
   },
 
-  -- 我不用到的配置，但不加会提示缺少 `field`。
-  on_highlights = function() end,
+  -- 自定义高亮组。
+  on_highlights = function(highlights)
+    highlights.CursorLineNr = { fg = '#fbaed2' }
+  end,
+
+  -- 自定义配色。
   on_colors = function() end,
 }
 
@@ -120,18 +124,13 @@ local diagnostic_texts_configs = merge_table(no_bg, { bold = true })
 set_custom_hl(diagnostic_texts, diagnostic_texts_configs)
 
 -- [[光标行]]
--- 链接其他光标行颜色组
-set_custom_hl({
-  'CursorLineNr', -- 光标行（数字）
-  -- 标志的光标行和 gitsigns 的颜色组不为同一个，所以不设置了。
-  -- 'CursorLineSign', -- 光标行（标志）
-}, { link = 'CursorLine' })
-
 -- 创建切换光标行是否显示的命令。
 vim.api.nvim_create_user_command('CursorLine', function()
   local bg = vim.api.nvim_get_hl(0, { name = 'CursorLine' }).bg
-  local new_bg = bg and 'none' or '#31353f'
-  set_custom_hl({ 'CursorLine' }, { bg = new_bg })
+  -- Background color from `tokyonight.nvim`.
+  -- Backup: '#31353f'.
+  local new_bg = bg and 'none' or '#292e42'
+  set_custom_hl({ 'CursorLine', 'CursorLineNr' }, { bg = new_bg })
 end, {})
 
 -- [[gui 透明度，默认值为 0，数字越大越透明]]

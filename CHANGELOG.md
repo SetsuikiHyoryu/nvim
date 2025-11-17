@@ -9,6 +9,7 @@
 ### Changed
 
 - 修改 Markview 颜色组以使背景透明。
+- Change cursorline number foreground color to `#fbaed2` (pink).
 
 ### Fixed
 
