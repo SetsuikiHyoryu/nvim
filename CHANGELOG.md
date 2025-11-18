@@ -14,6 +14,7 @@
 - Change cursorline number foreground color to `#fbaed2` (pink).
 - Use `snacks.pikcer` instead of `vim.lsp.buf.xxx`.
 - Change incsearch background to `fbaed2` (pink).
+- Use `render-markdown` instead of Markview.
 
 ### Fixed
 

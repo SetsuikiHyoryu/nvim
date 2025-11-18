@@ -82,47 +82,6 @@ vim.list_extend(
 
 set_custom_hl(hl_groups, no_bg)
 
--- Markview
-vim.api.nvim_create_autocmd('FileType', {
-  group = vim.api.nvim_create_augroup('MarkviewHighlightCustom', { clear = true }),
-  pattern = 'markdown',
-  once = true,
-  callback = function()
-    local markview_hl_groups = {
-      'MarkviewCode',
-      'MarkviewCodeInfo',
-      'MarkviewInlineCode',
-    }
-
-    -- Lua 虽然有 `unpack` 函数可以平铺数组，但是只能用一次。
-    -- 如果多次使用，像这样：`{ unpack({}), unpack({}), unpack({}) }`，
-    -- 则只有最后一次会真正平铺，其他都只会拿到第一个元素。
-    -- 所以合并多个数组需要用 `vim.list_extend` 进行组合。
-    vim.list_extend(
-      markview_hl_groups,
-      utils.array_from({ stop = 7 }, function(count)
-        return 'MarkviewPalette' .. count
-      end)
-    )
-
-    vim.list_extend(
-      markview_hl_groups,
-      utils.array_from({ stop = 7 }, function(count)
-        return 'MarkviewPalette' .. count .. 'Sign'
-      end)
-    )
-
-    vim.list_extend(
-      markview_hl_groups,
-      utils.array_from({ stop = 6 }, function(count)
-        return 'MarkviewIcon' .. count
-      end)
-    )
-
-    set_custom_hl(markview_hl_groups, no_bg)
-  end,
-})
-
 -- 行内信息（`gui=bold` 似于是默认值）
 local diagnostic_texts = {
   'DiagnosticVirtualTextHint',

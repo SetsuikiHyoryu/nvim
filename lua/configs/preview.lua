@@ -1,21 +1,31 @@
 local preview_group = vim.api.nvim_create_augroup('Preview', { clear = true })
 
-vim.pack.add { 'https://github.com/OXY2DEV/markview.nvim' }
+vim.pack.add { 'https://github.com/MeanderingProgrammer/render-markdown.nvim' }
+
+-- 取消代码块背景色（放在 `autocmd` 内会有一部分不生效）。
+-- 虽然 `render-markdown` 提供了取消代码块正文背景色的功能，
+-- 但是语言栏和边框没有提供。
+vim.api.nvim_set_hl(0, 'RenderMarkdownCode', { link = 'none', bg = 'none' })
 
 vim.api.nvim_create_autocmd('FileType', {
   group = preview_group,
   once = true,
   pattern = 'markdown',
   callback = function()
-    require('markview').setup {
-      ---@diagnostic disable-next-line: missing-fields
-      markdown = {
-        ---@diagnostic disable-next-line: missing-fields
-        code_blocks = {
-          sign = false,
-          style = 'simple',
-          label_direction = 'left',
-        },
+    require('render-markdown').setup {
+      completions = {
+        lsp = { enabled = true },
+      },
+
+      heading = {
+        sign = false,
+        backgrounds = {},
+      },
+
+      code = {
+        sign = false,
+        width = 'block',
+        disable_background = true,
       },
     }
   end,
