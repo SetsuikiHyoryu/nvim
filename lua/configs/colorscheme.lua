@@ -1,3 +1,5 @@
+local utils = require 'utils'
+
 vim.pack.add { 'https://github.com/folke/tokyonight.nvim' }
 
 require('tokyonight').setup {
@@ -68,15 +70,15 @@ local hl_groups = {
 
   -- Treesitter Language: Markdown
   '@markup.raw.markdown_inline', -- inline code block
-  '@markup.heading.1.markdown', -- heading (仅在 MacOS 中遭遇背景)
-  '@markup.heading.2.markdown', -- heading (仅在 MacOS 中遭遇背景)
-  '@markup.heading.3.markdown', -- heading (仅在 MacOS 中遭遇背景)
-  '@markup.heading.4.markdown', -- heading (仅在 MacOS 中遭遇背景)
-  '@markup.heading.5.markdown', -- heading (仅在 MacOS 中遭遇背景)
-  '@markup.heading.6.markdown', -- heading (仅在 MacOS 中遭遇背景)
-  '@markup.heading.7.markdown', -- heading (仅在 MacOS 中遭遇背景)
-  '@markup.heading.8.markdown', -- heading (仅在 MacOS 中遭遇背景)
 }
+
+vim.list_extend(
+  hl_groups,
+  -- Treesitter Language: Markdown - heading (仅在 MacOS 中遭遇背景)
+  utils.array_from({ start = 1, stop = 8 }, function(count)
+    return '@markup.heading.' .. count .. '.markdown'
+  end)
+)
 
 set_custom_hl(hl_groups, no_bg)
 
@@ -88,20 +90,34 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     local markview_hl_groups = {
       'MarkviewCode',
+      'MarkviewCodeInfo',
       'MarkviewInlineCode',
-      'MarkviewPalette1',
-      'MarkviewPalette2',
-      'MarkviewPalette3',
-      'MarkviewPalette4',
-      'MarkviewPalette5',
-      'MarkviewPalette6',
-      'MarkviewPalette1Sign',
-      'MarkviewPalette2Sign',
-      'MarkviewPalette3Sign',
-      'MarkviewPalette4Sign',
-      'MarkviewPalette5Sign',
-      'MarkviewPalette6Sign',
     }
+
+    -- Lua 虽然有 `unpack` 函数可以平铺数组，但是只能用一次。
+    -- 如果多次使用，像这样：`{ unpack({}), unpack({}), unpack({}) }`，
+    -- 则只有最后一次会真正平铺，其他都只会拿到第一个元素。
+    -- 所以合并多个数组需要用 `vim.list_extend` 进行组合。
+    vim.list_extend(
+      markview_hl_groups,
+      utils.array_from({ stop = 7 }, function(count)
+        return 'MarkviewPalette' .. count
+      end)
+    )
+
+    vim.list_extend(
+      markview_hl_groups,
+      utils.array_from({ stop = 7 }, function(count)
+        return 'MarkviewPalette' .. count .. 'Sign'
+      end)
+    )
+
+    vim.list_extend(
+      markview_hl_groups,
+      utils.array_from({ stop = 6 }, function(count)
+        return 'MarkviewIcon' .. count
+      end)
+    )
 
     set_custom_hl(markview_hl_groups, no_bg)
   end,
