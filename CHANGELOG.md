@@ -6,6 +6,7 @@
 
 - Enable CSS, HTML LSP.
 - Enable many other LSP.
+- Add `scope.nvim` plugin.
 
 ### Changed
 
