@@ -69,7 +69,7 @@ vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Powershell 中 Ctrl + Z 程序会失去响应，替换为返回键
-if utils.isWindows then
+if utils.is_windows then
   vim.keymap.set('n', '<C-Z>', 'u', { silent = true })
 end
 
