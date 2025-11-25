@@ -18,6 +18,4 @@ return {
       vue_plugin,
     },
   },
-
-  filetypes = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'vue' },
 }

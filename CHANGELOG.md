@@ -20,6 +20,9 @@
 
 - 修复光标行行号高亮不生效的问题。
 - 解决指定 Markdown 单文件打开时 Markview 不生效的问题。
+- 修复 `runtimepath/lsp/ts_ls.lua` 中的 `filetypes`  
+  未与 `nvim-lspconfig` 合并的问题。
+  原因是数组不是合并而是替换，暂时不明是插件问题还是原生问题。
 
 ## [3.0.0]
 

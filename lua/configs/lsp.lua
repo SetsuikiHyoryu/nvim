@@ -30,6 +30,12 @@ local servers = {
   'jdtls',
 }
 
+-- `runtimepath/lsp/` 下的 `filetypes` 会被替换而不是合并。
+-- 因此需要用这种方式手动配置。
+vim.lsp.config('ts_ls', {
+  filetypes = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'vue' },
+})
+
 -- 启动 LSP。
 for _, server in ipairs(servers) do
   vim.lsp.enable(server)
