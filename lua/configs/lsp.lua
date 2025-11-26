@@ -26,7 +26,6 @@ local servers = {
   'pyright',
   'clangd',
   'tinymist',
-  'powershell',
   'jdtls',
 }
 

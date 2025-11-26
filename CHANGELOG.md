@@ -25,6 +25,10 @@
   未与 `nvim-lspconfig` 合并的问题。
   原因是数组不是合并而是替换，暂时不明是插件问题还是原生问题。
 
+### Removed
+
+- Remove `powershell` LSP due to configuration failure.
+
 ## [3.0.0]
 
 ### Changed (3.0.0)
