@@ -15,6 +15,7 @@
 - Use `snacks.pikcer` instead of `vim.lsp.buf.xxx`.
 - Change incsearch background to `fbaed2` (pink).
 - Use `render-markdown` instead of Markview.
+- Disable the language label when `render-markdown` renders nofile.
 
 ### Fixed
 

@@ -13,10 +13,6 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'markdown',
   callback = function()
     require('render-markdown').setup {
-      completions = {
-        lsp = { enabled = true },
-      },
-
       heading = {
         sign = false,
         backgrounds = {},
@@ -26,6 +22,14 @@ vim.api.nvim_create_autocmd('FileType', {
         sign = false,
         width = 'block',
         disable_background = true,
+      },
+
+      overrides = {
+        buftype = {
+          nofile = {
+            code = { language = false },
+          },
+        },
       },
     }
   end,
