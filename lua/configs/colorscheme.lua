@@ -12,6 +12,10 @@ require('tokyonight').setup {
 
   -- 自定义高亮组。
   on_highlights = function(highlights)
+    -- 这个行号色是搭配 #100f12 opacity 0.78 的背景蒙版的。
+    -- 此时注释色是 #565f89 (Tokyonight Default)。
+    highlights.LineNr = { fg = '#4f576c' }
+
     highlights.CursorLineNr = { fg = '#fbaed2' }
   end,
 
