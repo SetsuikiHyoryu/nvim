@@ -16,7 +16,7 @@
 - Change incsearch background to `fbaed2` (pink).
 - Use `render-markdown` instead of Markview.
 - Disable the language label when `render-markdown` renders nofile.
-- Change `LineNr` to `#4f567c` for `#100f12` opacity `0.83` background mask.
+- Change `LineNr` to `#4f567c` for `#100f12` opacity `0.81` background mask.
 
 ### Fixed
 
