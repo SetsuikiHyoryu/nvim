@@ -16,27 +16,46 @@ require('lazydev').setup {
 -- 但如果需要自定义配置还是需要手动调用。
 vim.pack.add { 'https://github.com/neovim/nvim-lspconfig' }
 
-local servers = {
+-- 插件（这里是 `nvim-lspconfig`）优先级高于 `runtimepath/lsp/`（似乎是加载顺序），
+-- 两边配置中的对象会合并，但数组好像是直接覆盖。
+-- 所以修改 `filetypes` 只能在这里（也就是 `nvim-lspconfig` 加载后）完整覆写一遍：
+for lsp, config in pairs {
+  -- 为 `ts_ls` 配置 `vue_ls` 只是让 `ts_ls` 在 Vue 文件里生效。
+  -- 如果要让 Vue 文件中的 HTML 和 CSS 的 LSP 功能生效，
+  -- `vue_ls` 本身也需要作为服务器启动。
+  --
+  -- HTML 和 CSS 的 LSP 增加 `vue` 文件类型后自身也能正常生效，
+  -- 但是会影响到模版中非自身相关的区域，会造成和其他 LSP 重复或覆盖其行为的问题，
+  -- 所以不应该让 HTML 和 CSS 的 LSP 识别 Vue 文件。
+  ts_ls = {
+    filetypes = {
+      'javascript',
+      'javascriptreact',
+      'javascript.jsx',
+      'typescript',
+      'typescriptreact',
+      'typescript.tsx',
+      'vue',
+    },
+  },
+} do
+  vim.lsp.config(lsp, config)
+end
+
+-- 启动 LSP。
+for _, server in ipairs {
   'lua_ls',
   'rust_analyzer',
   'gopls',
+  'clangd',
   'ts_ls',
   'cssls',
   'html',
+  'vue_ls',
   'pyright',
-  'clangd',
-  'tinymist',
   'jdtls',
-}
-
--- `runtimepath/lsp/` 下的 `filetypes` 会被替换而不是合并。
--- 因此需要用这种方式手动配置。
-vim.lsp.config('ts_ls', {
-  filetypes = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'vue' },
-})
-
--- 启动 LSP。
-for _, server in ipairs(servers) do
+  'tinymist',
+} do
   vim.lsp.enable(server)
 end
 
