@@ -18,4 +18,21 @@ return {
       vue_plugin,
     },
   },
+
+  -- 为 `ts_ls` 配置 `vue_ls` 只是让 `ts_ls` 在 Vue 文件里生效。
+  -- 如果要让 Vue 文件中的 HTML 和 CSS 的 LSP 功能生效，
+  -- `vue_ls` 本身也需要作为服务器启动。
+  --
+  -- HTML 和 CSS 的 LSP 增加 `vue` 文件类型后自身也能正常生效，
+  -- 但是会影响到模版中非自身相关的区域，会造成和其他 LSP 重复或覆盖其行为的问题，
+  -- 所以不应该让 HTML 和 CSS 的 LSP 识别 Vue 文件。
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'javascript.jsx',
+    'typescript',
+    'typescriptreact',
+    'typescript.tsx',
+    'vue',
+  },
 }

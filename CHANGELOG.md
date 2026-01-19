@@ -17,6 +17,8 @@
 - Use `render-markdown` instead of Markview.
 - Disable the language label when `render-markdown` renders nofile.
 - Change `LineNr` to `#4f567c` for `#100f12` opacity `0.81` background mask.
+- 迁移 `vim.lsp.config` 个人配置至 `after/lsp/`，  
+  这个目录优先级高于 `nvim-lspconfig` 的 `lsp/`。
 
 ### Fixed
 
