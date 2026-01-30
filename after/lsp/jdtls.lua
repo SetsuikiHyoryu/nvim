@@ -22,8 +22,8 @@ return {
             path = os.getenv 'JAVA_HOME_17',
           },
           {
-            name = 'JavaSE-24',
-            path = os.getenv 'JAVA_HOME_24',
+            name = 'JavaSE-21',
+            path = os.getenv 'JAVA_HOME_21',
           },
         },
       },
