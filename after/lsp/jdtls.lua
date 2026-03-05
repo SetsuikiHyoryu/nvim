@@ -1,11 +1,23 @@
+local jdtls_location = vim.fn.expand '$MASON/packages' .. '/jdtls'
+
 -- Mac 上用 `openjdk` 会报错说找不到 `Object`, `String` 等类型，原因不明。
 -- 所以 Mac 上也要安装 Oracle 官方 JDK。
 return {
-  -- 为 `jdtsl` 指定 JDK 需要重写 `cmd` 并指定 `--java-executable`。
+  -- 为 `jdtls` 指定 JDK 需要重写 `cmd` 并指定 `--java-executable`。
   cmd = {
     'jdtls',
     '--java-executable',
     os.getenv 'JAVA_HOME_FOR_JDTLS' .. '/bin/java',
+
+    -- Neovim 中启动的 jdtls LSP 本质是一个实时 Java 编译器。
+    -- 需要加载 Lombok 代理才能实时地把向类注入方法的注解真实执行。
+    --
+    -- - `--jvm-arg=`: 告诉 jdtls 把之后的参数传给JVM。
+    -- - `-javaagent:`: 告诉 JVM 启动程序时挂载一个代理。
+    -- - `lombok.jar`: 程序编译时动态向类注入方法的注解处理器。
+    '--jvm-arg=-javaagent:'
+      .. jdtls_location
+      .. '/lombok.jar',
   },
 
   -- `settings.java.configuration.runtimes` 说是可以让 Java 自己找匹配项目的版本。
