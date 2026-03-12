@@ -28,6 +28,7 @@ require('conform').setup {
     html = { 'prettier' },
     css = { 'prettier' },
     json = { 'prettier' },
+    jsonc = { 'prettier' },
     yaml = { 'prettier' },
     go = { 'goimports', 'gofmt' },
     rust = { 'rustfmt' },
