@@ -5,11 +5,6 @@
 - 用户文档：<https://neovim.io/doc/user/>
 - LSP 全局默认按键：<https://neovim.io/doc/user/lsp.html#_defaults>
 
-## 0.10 重大更新
-
-- [What's New in Neovim 0.10](https://gpanders.com/blog/whats-new-in-neovim-0.10/)
-- [News-0.10](https://neovim.io/doc/user/news-0.10.html)
-
 ## 打印信息
 
 ```lua
@@ -27,10 +22,17 @@ print('white thighhighs')
 
 - `vim.inspect`: 返回 table 内容。
 - `vim.fn`: 原生 vim 函数的桥接器。
+- `:packadd nvim.xxx`: 在当前会话激活一些实用命令。
+  - `:TOHtml` (`nvim.tohtml`): 将当前 buffer 的渲染结果保存为静态 HTML。
 
-## 启动速度优化
+## 0.11 以来的官方内置化的原插件提供的功能
 
-`:Lazy` -> `P` 检查启动速度，找出速度慢的插件后将其改为 `event = 'VeryLazy'`。
+- `vim.pack`: 插件管理器。
+  - `vim.pack.update` 不会改变分支，需要手动管理插件的重大更新。
+- `vim.lsp`: 原 `nvim-lspconfig`。
+- `vim.treesitter`: 原 `nvim-treesitter`。
+
+这些被官方内置化了的原插件本身，目前基本都成为了下载更多解释器和服务的下载器。
 
 ## 查看 Mason 中的依赖的安装地址
 
