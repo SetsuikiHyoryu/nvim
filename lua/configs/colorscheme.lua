@@ -70,6 +70,7 @@ local hl_groups = {
   'SignColumn', -- 标志列（行号列左侧）
   'FoldColumn', -- 折叠列（标示列左侧）
   'StatusLine', -- 状态栏
+  'LspInlayHint', -- Inlay Hint
   -- 'NonText', -- 无字区，目前已经是无背景，但是不知道哪个插件设置的。
 
   -- Treesitter Language: Markdown
