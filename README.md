@@ -28,7 +28,8 @@ print('white thighhighs')
 ## 0.11 以来的官方内置化的原插件提供的功能
 
 - `vim.pack`: 插件管理器。
-  - `vim.pack.update` 不会改变分支，需要手动管理插件的重大更新。
+  - `vim.pack.update` 只是下载更新。
+  - 用 `:write` 应用更新，用 `:quit` 撤销更新。
 - `vim.lsp`: 原 `nvim-lspconfig`。
 - `vim.treesitter`: 原 `nvim-treesitter`。
 
