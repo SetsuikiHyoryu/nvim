@@ -14,4 +14,5 @@ require 'configs.autoformat' -- 自动格式化。
 require 'configs.completion' -- 代码补全。
 require 'configs.lint' -- 语法检查。
 require 'configs.preview' -- 预览。
+require 'configs.opencode' -- OpenCode.
 require 'configs.tabline' -- 顶部 buffer 栏（和 vim.pack 窗口冲突所以放到最后）。

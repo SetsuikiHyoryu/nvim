@@ -4,6 +4,8 @@ vim.pack.add { 'https://github.com/folke/which-key.nvim' }
 require('which-key').setup {
   delay = 0,
   spec = {
+    { '<leader>h', group = 'Git [H]unk' },
+    { '<leader>o', group = '[O]penCode' },
     { '<leader>s', group = '[S]earch' },
     { '<leader>t', group = '[T]oggle' },
   },
