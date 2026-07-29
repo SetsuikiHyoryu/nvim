@@ -3,14 +3,16 @@ vim.pack.add { 'https://github.com/stevearc/conform.nvim' }
 require('conform').setup {
   notify_on_error = false,
 
+  default_format_opts = {
+    lsp_format = 'fallback',
+  },
+
   format_on_save = function()
     if vim.g.disable_autoformat then
       return
     end
 
-    -- 开发者说是推荐这组属性值。
     return {
-      lsp_format = 'fallback',
       timeout_ms = 500,
     }
   end,
