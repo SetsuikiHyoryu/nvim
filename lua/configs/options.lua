@@ -68,10 +68,9 @@ vim.o.confirm = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- Powershell 中 Ctrl + Z 程序会失去响应，替换为返回键
-if utils.is_windows then
-  vim.keymap.set('n', '<C-Z>', 'u', { silent = true })
-end
+-- Powershell 中 Ctrl + Z 程序会失去响应，替换为返回键。
+-- Mac 中挂起后不能正常恢复，因此改为不作 OS 区分。
+vim.keymap.set('n', '<C-Z>', 'u', { silent = true })
 
 -- [[ Diagnostic keymaps ]]
 -- 0.10+ 中已经内置 `[d`, `]d`, `CTRL-W_d` 映射
