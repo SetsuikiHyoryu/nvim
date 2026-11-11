@@ -1,6 +1,11 @@
 -- LSP 包管理器。
 vim.pack.add { 'https://github.com/mason-org/mason.nvim' }
-require('mason').setup()
+require('mason').setup {
+  registries = {
+    'github:mason-org/mason-registry',
+    'github:Crashdummyy/mason-registry', -- 第三方源，提供 `roslyn`（C#/Razor）。
+  },
+}
 
 -- 这个插件让 `lua_ls` 可以识别 Neovim 和插件接口。
 vim.pack.add { 'https://github.com/folke/lazydev.nvim' }
@@ -11,6 +16,8 @@ require('lazydev').setup {
 }
 
 -- [[第三方 LSP]]
+-- 插件会自行调用 `vim.lsp.enable('roslyn')`，不用加进下方的启用列表。
+require 'configs.lsp.roslyn' -- C# / Razor LSP。
 -- 需要先于 `nvim-lspconfig` 加载，原因见 `java.lua`。
 require 'configs.lsp.java'
 
