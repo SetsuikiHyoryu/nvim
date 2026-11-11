@@ -4,20 +4,17 @@ require('mason').setup()
 
 -- 这个插件让 `lua_ls` 可以识别 Neovim 和插件接口。
 vim.pack.add { 'https://github.com/folke/lazydev.nvim' }
-
 require('lazydev').setup {
   -- See the configuration section for more details
   -- Load luvit types when the `vim.uv` word is found
   { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
 }
 
--- Java LSP.
--- 让 `nvim-jdtls` 比 `nvim-lspconfig` 先加载可以做到只启用 `nvim-jdtls` 的配置。
--- 不知道是 `lsp/` 发生了顶替还是 `jdtls` 只允许一个实例还是 Neovim 去重了实例。
--- `after/lsp/` 里如果写配置，可以正常合并与覆盖。
-vim.pack.add { 'https://github.com/mfussenegger/nvim-jdtls' }
+-- [[第三方 LSP]]
+-- 需要先于 `nvim-lspconfig` 加载，原因见 `java.lua`。
+require 'configs.lsp.java'
 
--- LSP 配置集。
+-- [[LSP 配置集]]
 -- 使用这个插件可以不用手动调用 `vim.lsp.config`，
 -- 但如果需要自定义配置还是需要手动调用。
 --
