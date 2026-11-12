@@ -41,7 +41,10 @@ require('conform').setup {
     go = { 'goimports', 'gofmt' },
     rust = { 'rustfmt' },
     c = { 'clang-format' },
-    python = { 'black' },
+
+    -- See: <https://docs.astral.sh/ruff/editors/setup/#neovim>
+    -- find `conform`
+    python = { 'ruff_fix', 'ruff_organize_imports', 'ruff_format' },
   },
 }
 

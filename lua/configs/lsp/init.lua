@@ -41,7 +41,8 @@ for _, server in ipairs {
   'cssls',
   'html',
   'vue_ls',
-  'pyright',
+  'basedpyright',
+  'ruff',
   'jdtls',
   'tinymist',
 } do
