@@ -13,6 +13,12 @@ plugin_treesitter.install(parsers)
 ---@param buf integer
 ---@param language string
 local function treesitter_try_attach(buf, language)
+  -- parser 是异步安装的，安装完成时 buffer 可能已经被关闭。
+  if not vim.api.nvim_buf_is_valid(buf) then
+    return
+  end
+
+  -- 加载 parser，不存在则放弃。
   if not vim.treesitter.language.add(language) then
     return
   end
@@ -27,8 +33,9 @@ local function treesitter_try_attach(buf, language)
   -- 检查当前语言有没有 treesitter 的缩进规则（即 nvim-treesitter 提供的 indents.scm 文件）
   -- 如果有，则用 treesitter 的缩进算法代替 vim 默认的（indentexpr/cindent/autoindent）。
   -- 如果没有，则不干预，保持 vim 原生的缩进方式。
+  -- 需要指定 `buf`：异步安装完成时，当前 buffer 不一定是 `buf`。
   if vim.treesitter.query.get(language, 'indents') ~= nil then
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end
 end
 
